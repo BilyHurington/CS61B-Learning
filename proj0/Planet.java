@@ -69,4 +69,8 @@ public class Planet{
 		this.xxPos+=dt*this.xxVel;
 		this.yyPos+=dt*this.yyVel;
 	}
+	/** Draw this planet */
+	public void draw(){
+		StdDraw.picture(xxPos/NBody.radius*NBody.scale,yyPos/NBody.radius*NBody.scale,"images/"+imgFileName);
+	}
 }
