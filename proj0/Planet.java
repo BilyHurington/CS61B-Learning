@@ -7,7 +7,6 @@ public class Planet{
 	public double yyVel;
 	public double mass;
 	public String imgFileName;
-	public Planet(){}
 	public Planet(double xP,double yP,double xV,double yV,double m,String img){
 		xxPos=xP;
 		yyPos=yP;
@@ -28,7 +27,7 @@ public class Planet{
 	public double calcDistance(Planet b){
 		return Math.sqrt((b.xxPos-xxPos)*(b.xxPos-xxPos)+(b.yyPos-yyPos)*(b.yyPos-yyPos));
 	}
-	public static final double G=6.67e-11;
+	private static final double G=6.67e-11;
 	/** Calculate force exerted by planet b */
 	public double calcForceExertedBy(Planet b){
 		double d=this.calcDistance(b);
@@ -71,6 +70,6 @@ public class Planet{
 	}
 	/** Draw this planet */
 	public void draw(){
-		StdDraw.picture(xxPos/NBody.radius*NBody.scale,yyPos/NBody.radius*NBody.scale,"images/"+imgFileName);
+		StdDraw.picture(xxPos,yyPos,"images/"+imgFileName);
 	}
 }

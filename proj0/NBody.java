@@ -13,7 +13,7 @@ public class NBody{
 		double r=in.readDouble();
 		Planet[] b=new Planet[n];
 		for(int i=0;i<n;i++){
-			b[i]=new Planet();
+			b[i]=new Planet(0,0,0,0,0,new String());
 			b[i].xxPos=in.readDouble();
 			b[i].yyPos=in.readDouble();
 			b[i].xxVel=in.readDouble();
@@ -23,18 +23,16 @@ public class NBody{
 		}
 		return b;
 	}
-	static final String background="images/starfield.jpg";
-	static final double scale=100;
-	public static double radius;
+	private static final String background="images/starfield.jpg";
 	/** Main method for drawing */
 	public static void main(String[] args){
 		double T=Double.parseDouble(args[0]);
 		double dt=Double.parseDouble(args[1]);
 		String filename=args[2];
-		radius=readRadius(filename);
+		double radius=readRadius(filename);
 		Planet[] b=readPlanets(filename);
 		int n=b.length;
-		StdDraw.setScale(-100, 100);
+		StdDraw.setScale(-radius,radius);
 		StdDraw.clear();
 		StdDraw.picture(0,0,background);
 		for(int i=0;i<n;i++){
