@@ -81,7 +81,7 @@ public class LinkedListDeque<T> {
 			return null;
 		}
 		LinkNode node = first.next;
-		for (int i = 0; i <= index; i++) {
+		for (int i = 0; i < index; i++) {
 			node = node.next;
 		}
 		return node.value;
