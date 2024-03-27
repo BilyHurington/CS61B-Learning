@@ -45,6 +45,9 @@ public class LinkedListDeque<Type>{
 		}
 	}
 	public Type removeFirst(){
+		if(size==0){
+			return null;
+		}
 		size--;
 		Type value=first.next.value;
 		first.next.next.prev=first;
@@ -52,6 +55,9 @@ public class LinkedListDeque<Type>{
 		return value;
 	}
 	public Type removeLast(){
+		if(size==0){
+			return null;
+		}
 		size--;
 		Type value=last.prev.value;
 		last.prev.prev.next=last;
@@ -59,7 +65,7 @@ public class LinkedListDeque<Type>{
 		return value;
 	}
 	public Type get(int index){
-		if(index>=size){
+		if(index>=size||index<0){
 			return null;
 		}
 		LinkNode node=first.next;
@@ -75,7 +81,7 @@ public class LinkedListDeque<Type>{
 		return getRecursive(node.next,index-1);
 	}
 	public Type getRecursive(int index){
-		if(index>=size){
+		if(index>=size||index<0){
 			return null;
 		}
 		return getRecursive(first.next,index);
