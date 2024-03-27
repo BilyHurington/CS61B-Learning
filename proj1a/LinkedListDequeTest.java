@@ -1,6 +1,6 @@
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
-	
+
 	/* Utility method for printing out empty checks. */
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
@@ -19,7 +19,7 @@ public class LinkedListDequeTest {
 		return true;
 	}
 
-	/* Prints a nice message based on whether a test passed. 
+	/* Prints a nice message based on whether a test passed.
 	 * The \n means newline. */
 	public static void printTestStatus(boolean passed) {
 		if (passed) {
@@ -29,20 +29,20 @@ public class LinkedListDequeTest {
 		}
 	}
 
-	/** Adds a few things to the list, checking isEmpty() and size() are correct, 
-	  * finally printing the results. 
+	/** Adds a few things to the list, checking isEmpty() and size() are correct,
+	  * finally printing the results.
 	  *
 	  * && is the "and" operation. */
 	public static void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
-		ArrayDeque<String> lld1 = new ArrayDeque<String>();
+		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
 		lld1.addFirst("front");
-		
+
 		// The && operator is the same as "and" in Python.
 		// It's a binary operator that returns true if both arguments true, and false otherwise.
 		passed = checkSize(1, lld1.size()) && passed;
@@ -68,7 +68,7 @@ public class LinkedListDequeTest {
 
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
-		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
+		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
