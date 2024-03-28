@@ -1,16 +1,23 @@
 /** This class outputs all palindromes in the words file in the current directory. */
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class PalindromeFinder {
-    /*
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         int minLength = 4;
-        In in = new In("../library-sp18/data/words.txt");
+        Scanner in = new Scanner(new File("../library-sp18/data/words.txt"));
         Palindrome palindrome = new Palindrome();
 
-        while (!in.isEmpty()) {
-            String word = in.readString();
+        while (true) {
+            String word = in.next();
+			if(word.isEmpty()){
+				break;
+			}
             if (word.length() >= minLength && palindrome.isPalindrome(word)) {
                 System.out.println(word);
             }
         }
-    } Uncomment this class once you've written isPalindrome. */
+    }
+    // Uncomment this class once you've written isPalindrome. */
 }
