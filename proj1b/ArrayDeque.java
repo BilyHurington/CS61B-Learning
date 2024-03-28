@@ -1,7 +1,7 @@
 public class ArrayDeque<T> implements Deque<T> {
+	private static final int addRadio = 2, delRadio = 4;
 	private T[] data;
 	private int size, start;
-	private static final int addRadio = 2, delRadio = 4;
 
 	public ArrayDeque() {
 		size = 0;
@@ -39,7 +39,6 @@ public class ArrayDeque<T> implements Deque<T> {
 	 */
 	private void resize(int newSize) {
 		if (newSize <= data.length && (newSize * delRadio >= data.length || data.length <= 8)) {
-			return;
 		} else if (newSize > data.length) {
 			rebuild(data.length * addRadio);
 		} else {
@@ -47,6 +46,7 @@ public class ArrayDeque<T> implements Deque<T> {
 		}
 	}
 
+	@Override
 	public void addFirst(T item) {
 		resize(size + 1);
 		size++;
@@ -54,16 +54,19 @@ public class ArrayDeque<T> implements Deque<T> {
 		data[start] = item;
 	}
 
+	@Override
 	public void addLast(T item) {
 		resize(size + 1);
 		size++;
 		data[(start + size - 1) % data.length] = item;
 	}
 
+	@Override
 	public boolean isEmpty() {
 		return size == 0;
 	}
 
+	@Override
 	public int size() {
 		return size;
 	}
@@ -78,6 +81,7 @@ public class ArrayDeque<T> implements Deque<T> {
 		}
 	}
 
+	@Override
 	public T removeFirst() {
 		if (size == 0) {
 			return null;
@@ -89,6 +93,7 @@ public class ArrayDeque<T> implements Deque<T> {
 		return answer;
 	}
 
+	@Override
 	public T removeLast() {
 		if (size == 0) {
 			return null;
@@ -99,6 +104,7 @@ public class ArrayDeque<T> implements Deque<T> {
 		return answer;
 	}
 
+	@Override
 	public T get(int index) {
 		if (index < 0 || index >= size) {
 			return null;
