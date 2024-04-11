@@ -69,6 +69,9 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
 	@Override
 	public T peek() {
 		// TODO: Return the first item. None of your instance variables should change.
+        if(isEmpty()){
+            throw new RuntimeException("Ring buffer is empty, no peek value exists");
+        }
 		return rb[first];
 	}
 
